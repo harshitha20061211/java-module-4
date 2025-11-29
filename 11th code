@@ -1,0 +1,22 @@
+import java.util.ArrayList;
+
+public class Main {
+    public static void main(String[] args) {
+
+        // Create ArrayList
+        ArrayList<String> names = new ArrayList<>();
+
+        // Add 5 names
+        names.add("Alice");
+        names.add("Bob");
+        names.add("Charlie");
+        names.add("David");
+        names.add("Emma");
+
+        // Remove 1 name
+        names.remove("Charlie");  // you can also use remove(index)
+
+        // Print final list
+        System.out.println("Final List: " + names);
+    }
+}
