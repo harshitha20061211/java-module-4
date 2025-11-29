@@ -1,0 +1,44 @@
+class Employee {
+    String name;
+    double salary;
+
+    // Constructor
+    Employee(String name, double salary) {
+        this.name = name;
+        this.salary = salary;
+    }
+
+    // Method to display info
+    void displayInfo() {
+        System.out.println("Name: " + name);
+        System.out.println("Salary: " + salary);
+    }
+}
+
+// Manager inherits Employee
+class Manager extends Employee {
+    String department;
+
+    // Constructor
+    Manager(String name, double salary, String department) {
+        super(name, salary);   // Call parent constructor
+        this.department = department;
+    }
+
+    // Display Manager info
+    void displayManagerInfo() {
+        displayInfo(); // Display Employee details
+        System.out.println("Department: " + department);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+
+        // Create Manager object
+        Manager m = new Manager("Harshitha", 50000, "HR");
+
+        // Print all details
+        m.displayManagerInfo();
+    }
+}
