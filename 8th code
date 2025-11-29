@@ -1,0 +1,119 @@
+// ------- Book Class -------
+class Book {
+    String title;
+    int price;
+
+    Book(String title, int price) {
+        this.title = title;
+        this.price = price;
+    }
+
+    // Override toString()
+    @Override
+    public String toString() {
+        return "Book[title=" + title + ", price=" + price + "]";
+    }
+}
+
+// ------- Car Class -------
+class Car {
+    String model = "Honda City";
+}
+
+// ------- Student Class (equals & hashCode) -------
+class Student {
+    int roll;
+    String name;
+
+    Student(int roll, String name) {
+        this.roll = roll;
+        this.name = name;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;       
+        if (obj == null || getClass() != obj.getClass()) return false;
+
+        Student s = (Student) obj;
+        return this.roll == s.roll;   // Students with same roll → equal
+    }
+
+    @Override
+    public int hashCode() {
+        return Integer.hashCode(roll);  // Same roll → same hash code
+    }
+}
+
+// ------- Movie Class -------
+class Movie {
+    String name;
+    String actor;
+    double rating;
+
+    Movie(String name, String actor, double rating) {
+        this.name = name;
+        this.actor = actor;
+        this.rating = rating;
+    }
+
+    @Override
+    public String toString() {
+        return "Movie[name=" + name + ", actor=" + actor + ", rating=" + rating + "]";
+    }
+}
+
+// ------- Player Class (hashCode based on age) -------
+class Player {
+    String name;
+    int age;
+
+    Player(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    @Override
+    public int hashCode() {
+        return Integer.hashCode(age);  // Same age → same hash code
+    }
+
+    @Override
+    public String toString() {
+        return "Player[name=" + name + ", age=" + age + "]";
+    }
+}
+
+
+// ------- Main Class -------
+public class Main {
+    public static void main(String[] args) {
+
+        // Book toString()
+        Book b = new Book("Java", 500);
+        System.out.println(b);
+
+        // Car getClass()
+        Car c = new Car();
+        System.out.println("Car Runtime Class = " + c.getClass().getName());
+
+        // Student equals() and hashCode()
+        Student s1 = new Student(101, "Rahul");
+        Student s2 = new Student(101, "Rohit");
+
+        System.out.println("Students equal? " + s1.equals(s2));
+        System.out.println("s1 hashCode: " + s1.hashCode());
+        System.out.println("s2 hashCode: " + s2.hashCode());
+
+        // Movie toString()
+        Movie m = new Movie("Inception", "Leonardo DiCaprio", 9.0);
+        System.out.println(m);
+
+        // Player hashCode()
+        Player p1 = new Player("Virat", 35);
+        Player p2 = new Player("Rohit", 35);
+
+        System.out.println("p1 hashCode: " + p1.hashCode());
+        System.out.println("p2 hashCode: " + p2.hashCode());
+    }
+}
