@@ -1,0 +1,75 @@
+// Final class - cannot be extended by any other class
+final class CentralBankRules {
+    void showRules() {
+        System.out.println("Central Bank Rules: Maintain minimum cash reserves and follow regulations.");
+    }
+}
+
+// Base class for all bank accounts
+class BankAccount {
+    
+    // Account number should never change
+    final String accountNumber;  
+
+    BankAccount(String accountNumber) {
+        this.accountNumber = accountNumber;   // can be assigned only once
+    }
+
+    // Final method - subclasses cannot override this
+    final void bankPolicy() {
+        System.out.println("Bank Policy: Follow RBI guidelines and maintain KYC standards.");
+    }
+
+    void displayAccount() {
+        System.out.println("Account Number: " + accountNumber);
+    }
+}
+
+// Savings Account subclass
+class SavingsAccount extends BankAccount {
+
+    SavingsAccount(String accountNumber) {
+        super(accountNumber);
+    }
+
+    void showType() {
+        System.out.println("Account Type: Savings Account");
+    }
+}
+
+// Current Account subclass
+class CurrentAccount extends BankAccount {
+
+    CurrentAccount(String accountNumber) {
+        super(accountNumber);
+    }
+
+    void showType() {
+        System.out.println("Account Type: Current Account");
+    }
+}
+
+// Main Application
+public class Main {
+    public static void main(String[] args) {
+
+        // Demonstrating final variable & final method
+        SavingsAccount sa = new SavingsAccount("ACC12345");
+        sa.displayAccount();
+        sa.showType();
+        sa.bankPolicy();   // final method from parent
+
+        System.out.println();
+
+        CurrentAccount ca = new CurrentAccount("ACC98765");
+        ca.displayAccount();
+        ca.showType();
+        ca.bankPolicy();
+
+        System.out.println();
+
+        // Using the final class CentralBankRules
+        CentralBankRules rules = new CentralBankRules();
+        rules.showRules();
+    }
+}
