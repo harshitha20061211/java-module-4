@@ -1,0 +1,44 @@
+class Payment {
+    void pay() {
+        System.out.println("Processing generic payment...");
+    }
+}
+
+class CreditCardPayment extends Payment {
+    @Override
+    void pay() {
+        System.out.println("Payment done using Credit Card.");
+    }
+}
+
+class UPIPayment extends Payment {
+    @Override
+    void pay() {
+        System.out.println("Payment done using UPI.");
+    }
+}
+
+class NetBankingPayment extends Payment {
+    @Override
+    void pay() {
+        System.out.println("Payment done using Net Banking.");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+
+        // Polymorphic reference
+        Payment payment;
+
+        // Assume user selects a payment type (dynamic)
+        payment = new CreditCardPayment();
+        payment.pay();
+
+        payment = new UPIPayment();
+        payment.pay();
+
+        payment = new NetBankingPayment();
+        payment.pay();
+    }
+}
