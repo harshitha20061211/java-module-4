@@ -1,0 +1,10 @@
+Transport t;
+
+t = new Truck();
+t.deliver();   // Which deliver() runs?
+
+t = new Ship();
+t.deliver();
+
+t = new Airplane();
+t.deliver();
